@@ -1,0 +1,14 @@
+<table id="minesweeper_table">
+<% y = 0 %>
+<% while y < board_width %>
+  <tr class="minesweeper_row">
+  <% x = 0 %>
+  <% while x < board_width %>
+    <td>
+      <div class="board_cell" id="x<%= x.to_s %>y<%= y.to_s %>" onclick="cellClicked(<%= x %>,<%= y %>)"></div>
+    <td>
+    <% x += 1 %>
+  <% end %>
+  <tr>
+  <% y += 1 %>
+<% end %>
