@@ -13,8 +13,8 @@ Dir[File.join(File.dirname(__FILE__), 'lib', '**', '*.rb')].each do |file|
   also_reload file
 end
 
-board_width = 8
-num_mines = 10
+board_width = 10
+num_mines = 6
 
 ms = MineSweeper.new(board_width, num_mines)
 
@@ -27,4 +27,9 @@ get '/mine_detector' do
   hit_mine = ms.check_for_mine(coord_choice)
   content_type :json
   hit_mine.to_json
+end
+
+get '/board_width' do
+  content_type :json
+  { width: board_width }.to_json
 end
